@@ -34,7 +34,6 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem "rails_event_store"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -52,3 +51,5 @@ group :development do
   gem "web-console"
 end
 
+gem "rails_event_store", "~> 2.15.0"
+gem "rails_event_store", "~> 2.15.0"
