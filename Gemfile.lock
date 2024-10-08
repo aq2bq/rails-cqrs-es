@@ -71,6 +71,10 @@ GEM
       minitest (>= 5.1)
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
+    aggregate_root (2.15.0)
+      ruby_event_store (= 2.15.0)
+    arkency-command_bus (0.4.1)
+      concurrent-ruby
     ast (2.4.2)
     base64 (0.2.0)
     bigdecimal (3.1.8)
@@ -180,6 +184,17 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
+    rails_event_store (2.15.0)
+      activejob (>= 6.0)
+      activemodel (>= 6.0)
+      activesupport (>= 6.0)
+      aggregate_root (= 2.15.0)
+      arkency-command_bus (>= 0.4)
+      rails_event_store_active_record (= 2.15.0)
+      ruby_event_store (= 2.15.0)
+      ruby_event_store-browser (= 2.15.0)
+    rails_event_store_active_record (2.15.0)
+      ruby_event_store-active_record (= 2.15.0)
     railties (7.2.1)
       actionpack (= 7.2.1)
       activesupport (= 7.2.1)
@@ -224,6 +239,14 @@ GEM
       rubocop-performance
       rubocop-rails
     ruby-progressbar (1.13.0)
+    ruby_event_store (2.15.0)
+      concurrent-ruby (~> 1.0, >= 1.1.6)
+    ruby_event_store-active_record (2.15.0)
+      activerecord (>= 6.0)
+      ruby_event_store (= 2.15.0)
+    ruby_event_store-browser (2.15.0)
+      rack
+      ruby_event_store (= 2.15.0)
     securerandom (0.3.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
@@ -272,6 +295,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.2.1)
+  rails_event_store
   rubocop-rails-omakase
   sprockets-rails
   stimulus-rails
