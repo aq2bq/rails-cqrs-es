@@ -71,6 +71,11 @@ GEM
       minitest (>= 5.1)
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
+    aggregate_root (2.15.0)
+      ruby_event_store (= 2.15.0)
+    annotaterb (4.12.0)
+    arkency-command_bus (0.4.1)
+      concurrent-ruby
     ast (2.4.2)
     base64 (0.2.0)
     bigdecimal (3.1.8)
@@ -93,7 +98,7 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
-    importmap-rails (2.0.2)
+    importmap-rails (2.0.3)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
@@ -141,6 +146,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
+    ostruct (0.6.0)
     parallel (1.26.3)
     parser (3.3.5.0)
       ast (~> 2.4.1)
@@ -180,6 +186,17 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
+    rails_event_store (2.15.0)
+      activejob (>= 6.0)
+      activemodel (>= 6.0)
+      activesupport (>= 6.0)
+      aggregate_root (= 2.15.0)
+      arkency-command_bus (>= 0.4)
+      rails_event_store_active_record (= 2.15.0)
+      ruby_event_store (= 2.15.0)
+      ruby_event_store-browser (= 2.15.0)
+    rails_event_store_active_record (2.15.0)
+      ruby_event_store-active_record (= 2.15.0)
     railties (7.2.1)
       actionpack (= 7.2.1)
       activesupport (= 7.2.1)
@@ -192,6 +209,10 @@ GEM
     rake (13.2.1)
     rdoc (6.7.0)
       psych (>= 4.0.0)
+    redis (5.3.0)
+      redis-client (>= 0.22.0)
+    redis-client (0.22.2)
+      connection_pool
     regexp_parser (2.9.2)
     reline (0.5.10)
       io-console (~> 0.5)
@@ -224,7 +245,21 @@ GEM
       rubocop-performance
       rubocop-rails
     ruby-progressbar (1.13.0)
+    ruby_event_store (2.15.0)
+      concurrent-ruby (~> 1.0, >= 1.1.6)
+    ruby_event_store-active_record (2.15.0)
+      activerecord (>= 6.0)
+      ruby_event_store (= 2.15.0)
+    ruby_event_store-browser (2.15.0)
+      rack
+      ruby_event_store (= 2.15.0)
     securerandom (0.3.1)
+    sidekiq (7.3.2)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      logger
+      rack (>= 2.2.4)
+      redis-client (>= 0.22.2)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -253,7 +288,7 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.6.18)
+    zeitwerk (2.7.0)
 
 PLATFORMS
   aarch64-linux
@@ -264,15 +299,20 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  annotaterb
   bootsnap
   brakeman
   debug
   importmap-rails
   jbuilder
+  ostruct
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.2.1)
+  rails_event_store (~> 2.15)
+  redis (>= 4.0.1)
   rubocop-rails-omakase
+  sidekiq
   sprockets-rails
   stimulus-rails
   turbo-rails
